@@ -125,11 +125,11 @@ jobs:
           name: Setup Heroku CLI
           command: |
             wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
-      - run: 
+      - run:
           name: Build and Push Image
           command: |
             make build-ml-api-heroku push-ml-api-heroku
-      - run: 
+      - run:
           name: Release to Heroku
           command: |
             heroku container:release web --app $HEROKU_APP_NAME
@@ -201,13 +201,13 @@ workflows:
       #       branches:
       #         only:
       #           - master
-      - section_11_build_and_push_to_heroku_docker:
-          requires:
-            - train_and_upload_regression_model
-          filters:
-            branches:
-              only:
-                - master
+#      - section_11_build_and_push_to_heroku_docker:
+#          requires:
+#            - train_and_upload_regression_model
+#          filters:
+#            branches:
+#              only:
+#                - master
       # - section_12_publish_docker_image_to_aws:
       #     requires:
       #       - train_and_upload_regression_model
